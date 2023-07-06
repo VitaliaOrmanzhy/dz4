@@ -4,27 +4,30 @@ if (!birthYear) {
 }
 
 const city = prompt('Введіть ваше місто').trim();
-const strToShow = `${2023 - birthYear}
+let strToShow = `${2023 - birthYear}
 Ти живеш у столиці `
+let countryToShow = '';
+let nameOfAthlete = '';
 
 if (!city) {
     alert('Шкода, що Ви не захотіли ввести своє місто');
 } else {
     switch (city.toLowerCase()) {
         case 'київ' :
-            alert(`${strToShow}України`);
+            strToShow += 'України';
             break;
 
         case 'лондон' :
-            alert(`${strToShow}Англії`);
+            strToShow += 'Англії';
             break;
         
         case 'вашингтон' :
-            alert(`${strToShow}США`);
+            strToShow += 'США';
             break;
 
         default:
-            alert(`${strToShow}${city}`)
+            strToShow = `${2023 - birthYear}
+Ти живеш у місті ${city}`;
     }
 }
 
@@ -35,15 +38,20 @@ if (!favSport) {
 } else {
     switch (favSport.toLowerCase()) {
         case 'бокс' :
-            alert('Круто! Хочеш стати Александром Усиком?');
+            nameOfAthlete = 'Александром Усиком';
             break;
         
         case 'футбол' :
-            alert('Круто! Хочеш стати Криштіану Роналду?');
+            nameOfAthlete = 'Криштіану Роналду';
             break;
 
         case 'баскетбол' :
-            alert('Круто! Хочеш стати Майклом Джорданом?');
+            nameOfAthlete = 'Майклом Джорданом';
             break;
     }
+}
+
+if (city && favSport && birthYear) {
+    alert(`${strToShow}
+Круто! Хочеш стати ${nameOfAthlete}`);
 }

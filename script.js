@@ -1,30 +1,30 @@
 const birthYear = parseInt(prompt('Введіть ваш рік народження'));
 if (!birthYear) {
     alert('Шкода, що Ви не захотіли ввести свій рік народження');
-} else {
-    alert(`${2023 - birthYear}`);
 }
 
 const city = prompt('Введіть ваше місто').trim();
+const strToShow = `${2023 - birthYear}
+Ти живеш у столиці `
 
 if (!city) {
     alert('Шкода, що Ви не захотіли ввести своє місто');
 } else {
     switch (city.toLowerCase()) {
         case 'київ' :
-            alert('Ти живеш у столиці України');
+            alert(`${strToShow}України`);
             break;
 
         case 'лондон' :
-            alert('Ти живеш у столиці Англії');
+            alert(`${strToShow}Англії`);
             break;
         
         case 'вашингтон' :
-            alert('Ти живеш у столиці США');
+            alert(`${strToShow}США`);
             break;
 
         default:
-            alert(`Ти живеш у місті ${city}`)
+            alert(`${strToShow}${city}`)
     }
 }
 

@@ -1,57 +1,62 @@
+let age = ''; 
+let cityStr = '';
+let sportStr = '';
+
+const ifUserDidntAnswer = ['Шкода, що ви не захотіли ввести свій рік народження', 'Шкода, що ви не захотіли ввести своє місто', 'Шкода, що ви не захотіли ввести свій улюблений вид спорту' ]
+
 const birthYear = parseInt(prompt('Введіть ваш рік народження'));
-if (!birthYear) {
-    alert('Шкода, що Ви не захотіли ввести свій рік народження');
+
+if (birthYear) {
+    age = 2023 - birthYear;
+} else {
+    alert(ifUserDidntAnswer[0]);
 }
 
-const city = prompt('Введіть ваше місто').trim();
-let strToShow = `${2023 - birthYear}
-Ти живеш у столиці `
-let countryToShow = '';
-let nameOfAthlete = '';
+const city = prompt('Введіть ваше місто');
 
-if (!city) {
-    alert('Шкода, що Ви не захотіли ввести своє місто');
-} else {
-    switch (city.toLowerCase()) {
+if (city) {
+    switch (city.toLowerCase().trim()) {
         case 'київ' :
-            strToShow += 'України';
+            cityStr = 'Ти живеш у столиці України';
             break;
 
         case 'лондон' :
-            strToShow += 'Англії';
+            cityStr = 'Ти живеш у столиці Англії';
             break;
         
         case 'вашингтон' :
-            strToShow += 'США';
+            cityStr = 'Ти живеш у столиці США';
             break;
 
         default:
-            strToShow = `${2023 - birthYear}
-Ти живеш у місті ${city}`;
+            cityStr = `Ти живеш у місті ${city}`;
     }
+} else {
+    alert(ifUserDidntAnswer[1]);
 }
 
-const favSport = prompt('Введіть назву вашого улюбленого спорту').trim();
+const favSport = prompt('Введіть назву вашого улюбленого спорту');
 
-if (!favSport) {
-    alert('Шкода, що Ви не захотіли ввести свій улюблений спорт');
-} else {
-    switch (favSport.toLowerCase()) {
+if (favSport) {
+    switch (favSport.toLowerCase().trim()) {
         case 'бокс' :
-            nameOfAthlete = 'Александром Усиком';
+            sportStr = 'Круто! Хочеш стати Александром Усиком';
             break;
         
         case 'футбол' :
-            nameOfAthlete = 'Криштіану Роналду';
+            sportStr = 'Круто! Хочеш стати Криштіану Роналду';
             break;
 
         case 'баскетбол' :
-            nameOfAthlete = 'Майклом Джорданом';
+            sportStr = 'Круто! Хочеш стати Майклом Джорданом';
             break;
     }
+} else {
+    alert(ifUserDidntAnswer[2]);
 }
 
-if (city && favSport && birthYear) {
-    alert(`${strToShow}
-Круто! Хочеш стати ${nameOfAthlete}`);
+if (birthYear || city || favSport) {
+    alert(`${age}
+${cityStr}
+${sportStr}`);
 }
